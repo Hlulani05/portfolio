@@ -45,12 +45,31 @@
   }
   .nav-logo {
     font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.1rem;
+    font-weight: 800; font-size: 1.05rem;
     color: var(--ink); text-decoration: none;
     letter-spacing: -0.02em;
-    display: flex; align-items: center; gap: 0.5rem;
+    display: flex; align-items: center; gap: 0.65rem;
   }
-  .nav-logo-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+  .nav-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--blue);
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue), var(--violet));
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .nav-avatar img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  }
+  /* Fallback initials if image fails */
+  .nav-avatar-initials {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem; font-weight: 800;
+    color: white; letter-spacing: -0.02em;
+  }
+  .nav-logo-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { font-size: 0.88rem; color: var(--ink-mid); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--blue); }
@@ -125,7 +144,7 @@
   }
   .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
-  /* HERO RIGHT — floating stat cards */
+  /* HERO RIGHT */
   .hero-right { display: flex; flex-direction: column; gap: 1rem; position: relative; z-index: 1; }
   .stat-card {
     background: var(--white);
@@ -195,7 +214,24 @@
 
   /* PROJECTS */
   #projects { background: var(--cream); }
-  .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+
+  /* Project category headings */
+  .projects-category-label {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .projects-category-label span {
+    font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-light);
+  }
+  .projects-category-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .projects-category-label.internship-label span { color: var(--violet); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2.5rem; }
+  .projects-grid-single { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+
   .project-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -218,13 +254,41 @@
   .pc-violet::before { background: linear-gradient(90deg, var(--violet), var(--coral)); }
   .pc-amber::before { background: linear-gradient(90deg, var(--amber), var(--teal)); }
   .pc-green::before { background: linear-gradient(90deg, #00c07a, var(--teal)); }
+  .pc-dark::before { background: linear-gradient(90deg, #1a1040, var(--violet)); }
+
+  /* Internship card special styling */
+  .project-card.internship-card {
+    background: linear-gradient(135deg, rgba(108,59,255,0.03) 0%, var(--white) 100%);
+    border-color: rgba(108,59,255,0.15);
+  }
+  .internship-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(108,59,255,0.1); border: 1px solid rgba(108,59,255,0.25);
+    color: var(--violet); font-size: 0.7rem; font-weight: 600;
+    padding: 0.22rem 0.7rem; border-radius: 100px;
+    margin-bottom: 0.8rem; letter-spacing: 0.04em;
+  }
+
   .project-number { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-light); margin-bottom: 1.2rem; display: block; }
   .project-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: -0.02em; line-height: 1.2; }
   .project-card p { font-size: 0.86rem; color: var(--ink-mid); font-weight: 300; line-height: 1.7; margin-bottom: 1.4rem; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.4rem; }
   .tag { background: rgba(13,13,13,0.06); color: var(--ink-mid); font-size: 0.7rem; font-weight: 500; padding: 0.22rem 0.6rem; border-radius: 100px; }
+  .tag.tag-bs { background: rgba(86,61,124,0.08); color: #563d7c; } /* Bootstrap purple */
   .project-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; color: var(--blue); text-decoration: none; transition: gap 0.2s; }
   .project-link:hover { gap: 0.7rem; }
+
+  /* Role split indicator for internship */
+  .role-split {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .role-pill {
+    font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.75rem;
+    border-radius: 100px; display: flex; align-items: center; gap: 0.35rem;
+  }
+  .role-pill.my-role { background: rgba(26,79,255,0.1); color: var(--blue); border: 1px solid rgba(26,79,255,0.2); }
+  .role-pill.collab-role { background: rgba(0,184,162,0.1); color: #007a6e; border: 1px solid rgba(0,184,162,0.2); }
 
   /* TESTIMONIALS */
   #testimonials {
@@ -364,6 +428,7 @@
     .services-band { padding: 3.5rem 1.5rem; }
     .services-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
     .projects-grid { grid-template-columns: 1fr; }
+    .projects-grid-single { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .about-band { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
     .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -377,7 +442,16 @@
 <!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">
-    <span class="nav-logo-dot"></span>Maluleke Hlulani Light.
+    <div class="nav-avatar" id="navAvatar">
+      <img 
+        src="img/WhatsApp Image 2026-05-25 at 18.30.12.jpeg" 
+        alt="Hlulani Light"
+        onerror="this.style.display='none'; document.getElementById('navInitials').style.display='flex';"
+      >
+      <span class="nav-avatar-initials" id="navInitials" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; border-radius:50%; background:linear-gradient(135deg,#1a4fff,#6c3bff);">HL</span>
+    </div>
+    <span class="nav-logo-dot"></span>
+    Maluleke Hlulani Light.
   </a>
   <ul class="nav-links">
     <li><a href="#projects">Work</a></li>
@@ -391,14 +465,14 @@
 <section id="home" class="hero">
   <div class="hero-bg-text" aria-hidden="true">HLULANI</div>
   <div class="hero-left">
-    <div class="hero-tag">Available for projects · Pretoria, SA</div>
+    <div class="hero-tag">Available for opportunities · Pretoria, SA</div>
     <h1>
       Full-Stack<br>
       <span class="word-dev">Developer</span> &<br>
       <span class="word-arch">Architect.</span>
     </h1>
     <p class="hero-sub">I design and build complete digital platforms — from beautiful, 
-      responsive interfaces to robust backend systems that scale.</p>
+      responsive interfaces to robust backend systems that scale. 6 live systems. Real clients. Proven results.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View my work →</a>
       <a href="#contact" class="btn-outline">Get in touch</a>
@@ -408,8 +482,8 @@
     <div class="stat-card reveal">
       <div class="stat-icon blue">🚀</div>
       <div>
-        <div class="stat-num">4+</div>
-        <div class="stat-label">Live Projects</div>
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Live Projects Delivered</div>
       </div>
     </div>
     <div class="stat-card reveal">
@@ -423,7 +497,7 @@
       <div class="stat-icon teal">⚡</div>
       <div>
         <div class="stat-num">PHP</div>
-        <div class="stat-label">Primary Backend Stack</div>
+        <div class="stat-label">+ Python · MySQL · JS</div>
       </div>
     </div>
     <div class="stat-card reveal">
@@ -444,22 +518,22 @@
     <div class="service-item reveal">
       <span class="service-num">01</span>
       <h3>Frontend Development</h3>
-      <p>Pixel-perfect interfaces using HTML, CSS, JavaScript, and Bootstrap that are fast, accessible, and a pleasure to use.</p>
+      <p>Pixel-perfect, fully responsive interfaces using HTML, CSS, JavaScript, and Bootstrap — fast, accessible, and built for all devices.</p>
     </div>
     <div class="service-item reveal">
       <span class="service-num">02</span>
       <h3>Backend Development</h3>
-      <p>Solid PHP and MySQL backends — REST APIs, role-based auth, dashboards, notifications, and bulk data exports.</p>
+      <p>Solid PHP and MySQL backends — multi-role authentication, dashboards, payment tracking, notifications, and bulk document exports.</p>
     </div>
     <div class="service-item reveal">
       <span class="service-num">03</span>
       <h3>UI / UX Design</h3>
-      <p>Figma-first design that centres the user before a line of code is written — clean, intuitive, intentional.</p>
+      <p>Figma-first design that centres the user before a line of code is written — clean, intuitive, and built around real workflows.</p>
     </div>
     <div class="service-item reveal">
       <span class="service-num">04</span>
       <h3>Platform Architecture</h3>
-      <p>Scalable system design covering multi-role access, SLA tracking, billing automation, and export optimisation.</p>
+      <p>End-to-end system design: multi-role access, SLA tracking, billing automation, member management, and scalable data exports.</p>
     </div>
   </div>
 </div>
@@ -468,49 +542,143 @@
 <section id="projects">
   <p class="section-label">Selected work</p>
   <h2 class="section-title">Projects</h2>
+
+  <!-- FREELANCE PROJECTS -->
+  <div class="projects-category-label">
+    <span>Independent Freelance — Direct Client Work</span>
+  </div>
   <div class="projects-grid">
+
     <div class="project-card pc-blue reveal">
       <span class="project-number">01 — Healthcare</span>
       <h3>Health Connect Clinic</h3>
-      <p>Full appointment booking system with email notifications, patient management, and a comprehensive admin dashboard.</p>
-      <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Email API</span><span class="tag">Admin Panel</span></div>
+      <p>Patient-facing clinic booking platform with appointment scheduling, automated email notifications, and a full admin dashboard for managing doctors, time slots, and patient records. Fully responsive across mobile and desktop.</p>
+      <div class="project-tags">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag tag-bs">Bootstrap</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">Email API</span>
+        <span class="tag">Responsive</span>
+      </div>
       <a href="https://healthconnectclinic1.co.za" target="_blank" class="project-link">View live →</a>
     </div>
+
     <div class="project-card pc-teal reveal">
       <span class="project-number">02 — Healthcare</span>
-      <h3>Health Connect File Migration</h3>
-      <p>Digital patient file management covering consultations, prescriptions, and bulk exports for a live healthcare provider.</p>
-      <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">PDF Export</span></div>
+      <h3>Health Connect — File System</h3>
+      <p>Extended patient management portal handling full consultation records, prescriptions, manual payment processing, and client-facing dashboards so patients can track their own history. Exports print-ready and PDF documents. Fully responsive.</p>
+      <div class="project-tags">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag tag-bs">Bootstrap</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">PDF Export</span>
+        <span class="tag">Client Dashboard</span>
+        <span class="tag">Responsive</span>
+      </div>
       <a href="https://files.healthconnectclinic1.co.za" target="_blank" class="project-link">View live →</a>
     </div>
+
     <div class="project-card pc-coral reveal">
       <span class="project-number">03 — FinTech</span>
       <h3>Manginet Burial Society</h3>
-      <p>Multi-role dashboards with member registration, payment tracking, and data exports for a community burial society.</p>
-      <div class="project-tags"><span class="tag">Multi-role Auth</span><span class="tag">Payments</span><span class="tag">Exports</span></div>
+      <p>Full burial society management system rebuilt from scratch — multi-role dashboards for admins, members, and agents. Members manage their own cover, track manual payments, and view their policy history through a personal dashboard. Includes member lifecycle management and document exports. Fully responsive.</p>
+      <div class="project-tags">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag tag-bs">Bootstrap</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">Multi-role Auth</span>
+        <span class="tag">Member Dashboard</span>
+        <span class="tag">Manual Payments</span>
+        <span class="tag">Responsive</span>
+      </div>
       <a href="https://manginet.42web.io" target="_blank" class="project-link">View testing →</a>
     </div>
+
     <div class="project-card pc-violet reveal">
       <span class="project-number">04 — Marketing</span>
       <h3>Manginet Services Site</h3>
-      <p>Public-facing marketing site showcasing insurance cover policy details and service offerings.</p>
-      <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span></div>
+      <p>Public-facing cover policy showcase presenting Manginet's burial cover products and service tiers in a clean, accessible format. Designed to convert visitors into members by clearly communicating cover benefits and contact points.</p>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag tag-bs">Bootstrap</span>
+        <span class="tag">GitHub Pages</span>
+        <span class="tag">Responsive</span>
+      </div>
       <a href="https://Hlulani05.github.io/manginet/" target="_blank" class="project-link">View on GitHub →</a>
     </div>
+
     <div class="project-card pc-amber reveal">
       <span class="project-number">05 — Entertainment</span>
       <h3>Music Platform</h3>
-      <p>Role-based music upload, streaming, and download platform with an admin content management dashboard.</p>
-      <div class="project-tags"><span class="tag">Streaming</span><span class="tag">Role Auth</span><span class="tag">Admin Panel</span></div>
+      <p>Role-based music streaming platform — artists upload tracks, listeners stream and download, and users can like and share music directly to social media platforms. Admin panel handles content moderation, user management, and upload controls. Fully responsive.</p>
+      <div class="project-tags">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag tag-bs">Bootstrap</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">Streaming</span>
+        <span class="tag">Social Sharing</span>
+        <span class="tag">Role Auth</span>
+        <span class="tag">Responsive</span>
+      </div>
       <a href="https://music.healthconnectclinic1.co.za" target="_blank" class="project-link">View live →</a>
     </div>
-    <div class="project-card pc-green reveal">
-      <span class="project-number">06 — Enterprise</span>
+
+
+
+  </div>
+
+  <!-- INTERNSHIP PROJECT -->
+  <div class="projects-category-label internship-label" style="margin-top: 1rem;">
+    <span>DTBI Solutions Internship · Aug 2025 – Jul 2026 (12 months)</span>
+  </div>
+  <div class="projects-grid-single">
+
+    <div class="project-card pc-dark internship-card reveal">
+      <div class="internship-badge">🏢 Internship · DTBI Solutions (DataTank)</div>
+      <span class="project-number">06 — Enterprise · Desktop-Optimised</span>
       <h3>HR Ignite</h3>
-      <p>Enterprise work-tracking system with SLA management, billing automation, client onboarding, and consultant ticket assignment.</p>
-      <div class="project-tags"><span class="tag">SLA</span><span class="tag">Billing</span><span class="tag">Onboarding</span><span class="tag">Tickets</span></div>
+      <p>Enterprise HR and client management system built for desktop use — featuring SLA tracking, automated billing workflows, and a structured client onboarding pipeline. Consultants are assigned tickets, billing is triggered automatically on SLA milestones, and client accounts are managed end-to-end from onboarding through reporting.</p>
+      <div class="role-split">
+        <span class="role-pill my-role">👨‍💻 My role: Full Frontend (HTML · CSS · JS · Bootstrap)</span>
+        <span class="role-pill collab-role">🤝 Fumani Marion: Backend (Python · MySQL)</span>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag tag-bs">Bootstrap</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">SLA Tracking</span>
+        <span class="tag">Billing Automation</span>
+        <span class="tag">Client Onboarding</span>
+        <span class="tag">Ticket System</span>
+        <span class="tag">Desktop App</span>
+      </div>
       <a href="https://ignitewebapp.onrender.com" target="_blank" class="project-link">View live →</a>
     </div>
+
+    <!-- Placeholder for visual balance — could add more internship context -->
+    <div class="project-card reveal" style="background: linear-gradient(135deg, #0d0d0d, #1a1040); border-color: rgba(108,59,255,0.2); display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
+      <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(108,59,255,0.6); margin-bottom:1rem;">About the internship</p>
+      <h3 style="font-family:'Syne',sans-serif; font-weight:800; color:white; font-size:1.3rem; margin-bottom:1rem; letter-spacing:-0.02em; line-height:1.2;">12 months building enterprise software at DTBI Solutions.</h3>
+      <p style="font-size:0.86rem; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.7; margin-bottom:1.4rem;">Working under direct management in a professional software team — contributing to a live product used by real business clients, collaborating across frontend and backend disciplines.</p>
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <span style="font-size:0.78rem; color:rgba(0,184,162,0.8);">📋 Manager: Tankiso Vukeya</span>
+        <span style="font-size:0.78rem; color:rgba(0,184,162,0.8);">👥 HR: Relebohile Mochesela</span>
+        <span style="font-size:0.78rem; color:rgba(0,184,162,0.8);">🤝 Collaborator: Fumani Marion Maphali (Backend/DB)</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -523,36 +691,36 @@
       <span class="testimonial-quote-mark">"</span>
       <p class="testimonial-text">Hlulani delivered our system ahead of schedule and exceeded every expectation we had going into the project.</p>
       <div class="testimonial-divider"></div>
-      <div class="testimonial-author">Health Connect Manager</div>
-      <div class="testimonial-role">Health Connect Clinic</div>
+      <div class="testimonial-author">Thulani Silence Ndlovu</div>
+      <div class="testimonial-role">Manager · Health Connect Clinic</div>
     </div>
     <div class="testimonial-card reveal">
       <span class="testimonial-quote-mark">"</span>
       <p class="testimonial-text">Reliable and professional in handling our burial society system. Everything runs smoothly and the team loves it.</p>
       <div class="testimonial-divider"></div>
-      <div class="testimonial-author">Management Team</div>
-      <div class="testimonial-role">Manginet Burial Society</div>
+      <div class="testimonial-author">Akani Nkuna</div>
+      <div class="testimonial-role">Manager · Manginet Burial Society</div>
     </div>
     <div class="testimonial-card reveal">
       <span class="testimonial-quote-mark">"</span>
-      <p class="testimonial-text">Excellent collaboration throughout the HR Ignite project. Technical skills matched by real communication and follow-through.</p>
+      <p class="testimonial-text">Excellent collaboration on HR Ignite. Technical skills matched by real communication, ownership, and follow-through under pressure.</p>
       <div class="testimonial-divider"></div>
-      <div class="testimonial-author">Project Lead</div>
-      <div class="testimonial-role">HR Ignite Team</div>
+      <div class="testimonial-author">Carla & Seapei</div>
+      <div class="testimonial-role">HR Ignite · DTBI Solutions</div>
     </div>
     <div class="testimonial-card reveal">
       <span class="testimonial-quote-mark">"</span>
-      <p class="testimonial-text">Strong leadership and outstanding technical delivery during the internship. A developer who truly takes ownership.</p>
+      <p class="testimonial-text">Strong ownership and outstanding technical delivery throughout the internship. A developer who takes initiative and delivers.</p>
       <div class="testimonial-divider"></div>
-      <div class="testimonial-author">Director</div>
-      <div class="testimonial-role">DTBI Solutions</div>
+      <div class="testimonial-author">Tankiso Vukeya</div>
+      <div class="testimonial-role">Manager · DTBI Solutions</div>
     </div>
     <div class="testimonial-card reveal">
       <span class="testimonial-quote-mark">"</span>
-      <p class="testimonial-text">Great teamwork and smooth project execution from start to finish. Would work with Hlulani again without hesitation.</p>
+      <p class="testimonial-text">Great teamwork and seamless collaboration on the frontend. Hlulani brought real energy and precision to every sprint.</p>
       <div class="testimonial-divider"></div>
       <div class="testimonial-author">Fumani Marion Maphali</div>
-      <div class="testimonial-role">Project Collaborator</div>
+      <div class="testimonial-role">Backend Developer · DTBI Solutions</div>
     </div>
   </div>
 </section>
@@ -565,7 +733,8 @@
   </div>
   <div class="about-right">
     <p>I'm Maluleke Hlulani Light — a full-stack developer and platform architect based in Pretoria, South Africa. I hold a BSc in Computer Science from the University of Venda and specialise in turning complex requirements into clean, performant web applications.</p>
-    <p>From healthcare platforms to enterprise HR systems, I bring both technical rigour and design sensibility to every project. I actively leverage AI-assisted learning to stay sharp on modern PHP and JavaScript patterns.</p>
+    <p>I've independently delivered 5 live systems directly for clients — spanning healthcare, fintech, and entertainment — and still doing a 12-month internship at DTBI Solutions building enterprise software with a professional team. Every system I've built runs on real users, real data, and real business logic.</p>
+    <p>I actively leverage modern tools and AI-assisted learning to stay sharp on PHP, and JavaScript patterns — because the best developers never stop learning.</p>
     <div class="skills-list">
       <span class="skill-pill">HTML / CSS</span>
       <span class="skill-pill">JavaScript</span>
@@ -605,18 +774,9 @@
 
     <div class="contact-form-wrapper">
       <div class="form-title">Send a message</div>
-
-      <!-- 
-        HOW TO RECEIVE MESSAGES:
-        1. Go to https://formspree.io and sign up free
-        2. Create a new form — copy your unique form ID (looks like "xpwzqkgb")
-        3. Replace "YOUR_FORM_ID" in the action URL below with your actual ID
-        4. That's it — every submission lands in your Gmail inbox
-      -->
       <form class="contact-form" id="contactForm"
             action="https://formspree.io/f/mjgzyboo"
             method="POST">
-
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
@@ -646,10 +806,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Tell me about your project — what you need, timeline, any details…" required></textarea>
         </div>
-
-        <!-- Hidden redirect field for Formspree -->
         <input type="hidden" name="_next" value="https://hlulani05.github.io/#contact">
-
         <button type="submit" class="btn-send" id="sendBtn">Send message →</button>
         <p class="form-note">Messages go directly to Malulekehlulani04@gmail.com via Formspree.</p>
         <div class="form-success" id="formSuccess">
@@ -681,7 +838,7 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Contact form — Formspree AJAX submission
+  // Contact form — Formspree AJAX
   const form = document.getElementById('contactForm');
   const btn = document.getElementById('sendBtn');
   const successMsg = document.getElementById('formSuccess');
@@ -690,14 +847,12 @@
     e.preventDefault();
     btn.disabled = true;
     btn.textContent = 'Sending…';
-
     try {
       const res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-
       if (res.ok) {
         btn.style.display = 'none';
         successMsg.style.display = 'block';
