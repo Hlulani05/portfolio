@@ -254,6 +254,7 @@
   .pc-violet::before { background: linear-gradient(90deg, var(--violet), var(--coral)); }
   .pc-amber::before { background: linear-gradient(90deg, var(--amber), var(--teal)); }
   .pc-green::before { background: linear-gradient(90deg, #00c07a, var(--teal)); }
+  .pc-pink::before { background: linear-gradient(90deg, var(--coral), var(--violet)); }
   .pc-dark::before { background: linear-gradient(90deg, #1a1040, var(--violet)); }
 
   /* Internship card special styling */
@@ -472,7 +473,7 @@
       <span class="word-arch">Architect.</span>
     </h1>
     <p class="hero-sub">I design and build complete digital platforms — from beautiful, 
-      responsive interfaces to robust backend systems that scale. 4 live systems. Real clients. Proven results.</p>
+      responsive interfaces to robust backend systems that scale. 6 live systems. Real clients. Proven results.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View my work →</a>
       <a href="#contact" class="btn-outline">Get in touch</a>
@@ -482,7 +483,7 @@
     <div class="stat-card reveal">
       <div class="stat-icon blue">🚀</div>
       <div>
-        <div class="stat-num">4+</div>
+        <div class="stat-num">6+</div>
         <div class="stat-label">Live Projects Delivered</div>
       </div>
     </div>
@@ -497,7 +498,7 @@
       <div class="stat-icon teal">⚡</div>
       <div>
         <div class="stat-num">PHP</div>
-        <div class="stat-label">+ Python · MySQL · JS</div>
+        <div class="stat-label">+ React · Node.js · MySQL</div>
       </div>
     </div>
     <div class="stat-card reveal">
@@ -518,12 +519,12 @@
     <div class="service-item reveal">
       <span class="service-num">01</span>
       <h3>Frontend Development</h3>
-      <p>Pixel-perfect, fully responsive interfaces using HTML, CSS, JavaScript, and Bootstrap — fast, accessible, and built for all devices.</p>
+      <p>Pixel-perfect, fully responsive interfaces using HTML, CSS, JavaScript, React/Vite, and Bootstrap — fast, accessible, and built for all devices.</p>
     </div>
     <div class="service-item reveal">
       <span class="service-num">02</span>
       <h3>Backend Development</h3>
-      <p>Solid PHP and MySQL backends — multi-role authentication, dashboards, payment tracking, notifications, and bulk document exports.</p>
+      <p>Solid PHP, Node.js/Express and MySQL backends — multi-role authentication, dashboards, payment tracking, notifications, real-time features, and bulk document exports.</p>
     </div>
     <div class="service-item reveal">
       <span class="service-num">03</span>
@@ -533,7 +534,7 @@
     <div class="service-item reveal">
       <span class="service-num">04</span>
       <h3>Platform Architecture</h3>
-      <p>End-to-end system design: multi-role access, SLA tracking, billing automation, member management, and scalable data exports.</p>
+      <p>End-to-end system design: multi-role access, SLA tracking, billing automation, member management, real-time chat, and scalable data exports.</p>
     </div>
   </div>
 </div>
@@ -633,19 +634,60 @@
       <a href="https://music.healthconnectclinic1.co.za" target="_blank" class="project-link">View live →</a>
     </div>
 
+    <div class="project-card pc-green reveal">
+      <span class="project-number">06 — Retail / E-commerce</span>
+      <h3>GB Sports</h3>
+      <p>Sports apparel storefront (tracksuits, kits, tights, golf shirts, bomber jackets) built with React, Vite and Tailwind. Supabase-backed product catalog with full admin CRUD and photo uploads, plus Team &amp; Bulk Order and Book-a-Fitting request forms that save to the database and trigger EmailJS notifications.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">Vite</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">Supabase</span>
+        <span class="tag">EmailJS</span>
+        <span class="tag">Admin CRUD</span>
+        <span class="tag">Responsive</span>
+      </div>
+      <a href="https://GBSports.onrender.com" target="_blank" class="project-link">View live →</a>
+    </div>
 
+  </div>
+
+  <!-- SELF-DIRECTED PROJECTS -->
+  <div class="projects-category-label">
+    <span>Self-Directed — Independent Builds</span>
+  </div>
+  <div class="projects-grid-single" style="margin-bottom: 2.5rem;">
+
+    <div class="project-card pc-pink reveal">
+      <span class="project-number">07 — Social / Dating</span>
+      <h3>LoveConnect</h3>
+      <p>Full-stack dating platform built solo end-to-end: a React/Vite frontend with a swipe-based Discover feed and a filterable Nearby grid, backed by Node.js/Express and MySQL. Real-time chat runs on Socket.io, and a weighted compatibility-scoring algorithm (interest tags, lifestyle fields, quiz answers) surfaces a genuine % match instead of random ordering. Includes Cloudinary-backed photo uploads, JWT auth with refresh-token rotation, a role-based admin dashboard (user management, moderation queue, live platform stats), and a fully responsive, mobile-first UI with a native-style bottom tab bar. Deployed on Render as separate frontend/backend services with production CORS and cross-site cookie handling.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">Vite</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Socket.io</span>
+        <span class="tag">JWT Auth</span>
+        <span class="tag">Cloudinary</span>
+        <span class="tag">Admin Dashboard</span>
+        <span class="tag">Responsive</span>
+      </div>
+      <a href="https://loveconnect-node-client.onrender.com" target="_blank" class="project-link">View live →</a>
+    </div>
 
   </div>
 
   <!-- INTERNSHIP PROJECT -->
   <div class="projects-category-label internship-label" style="margin-top: 1rem;">
-    <span>DTBI Solutions Internship · Aug 2025 – Jul 2026 (12 months)</span>
+    <span>DTBI Solutions Internship · Aug 2025 – Aug 2026 (Completed)</span>
   </div>
   <div class="projects-grid-single">
 
     <div class="project-card pc-dark internship-card reveal">
       <div class="internship-badge">🏢 Internship · DTBI Solutions (DataTank)</div>
-      <span class="project-number">06 — Enterprise · Desktop-Optimised</span>
+      <span class="project-number">08 — Enterprise · Desktop-Optimised</span>
       <h3>HR Ignite</h3>
       <p>Enterprise HR and client management system built for desktop use — featuring SLA tracking, automated billing workflows, and a structured client onboarding pipeline. Consultants are assigned tickets, billing is triggered automatically on SLA milestones, and client accounts are managed end-to-end from onboarding through reporting.</p>
       <div class="role-split">
@@ -671,7 +713,7 @@
     <div class="project-card reveal" style="background: linear-gradient(135deg, #0d0d0d, #1a1040); border-color: rgba(108,59,255,0.2); display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
       <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(108,59,255,0.6); margin-bottom:1rem;">About the internship</p>
       <h3 style="font-family:'Syne',sans-serif; font-weight:800; color:white; font-size:1.3rem; margin-bottom:1rem; letter-spacing:-0.02em; line-height:1.2;">12 months building enterprise software at DTBI Solutions.</h3>
-      <p style="font-size:0.86rem; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.7; margin-bottom:1.4rem;">Working under direct management in a professional software team — contributing to a live product used by real business clients, collaborating across frontend and backend disciplines.</p>
+      <p style="font-size:0.86rem; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.7; margin-bottom:1.4rem;">Worked under direct management in a professional software team — contributing to a live product used by real business clients, collaborating across frontend and backend disciplines.</p>
       <div style="display:flex; flex-direction:column; gap:0.5rem;">
         <span style="font-size:0.78rem; color:rgba(0,184,162,0.8);">📋 Manager: Tankiso Vukeya</span>
         <span style="font-size:0.78rem; color:rgba(0,184,162,0.8);">👥 HR: Relebohile Mochesela</span>
@@ -733,14 +775,17 @@
   </div>
   <div class="about-right">
     <p>I'm Maluleke Hlulani Light — a full-stack developer and platform architect based in Pretoria, South Africa. I hold a BSc in Computer Science from the University of Venda and specialise in turning complex requirements into clean, performant web applications.</p>
-    <p>I've independently delivered 4 live systems directly for clients — spanning healthcare, fintech, and entertainment — and still doing a 12-month internship at DTBI Solutions building enterprise software with a professional team. Every system I've built runs on real users, real data, and real business logic.</p>
-    <p>I actively leverage modern tools and AI-assisted learning to stay sharp on PHP, and JavaScript patterns — because the best developers never stop learning.</p>
+    <p>I've independently delivered 6 live systems — spanning healthcare, fintech, entertainment, retail and social/dating — and recently completed a 12-month internship at DTBI Solutions building enterprise software with a professional team. Every system I've built runs on real users, real data, and real business logic.</p>
+    <p>I actively leverage modern tools and AI-assisted learning to stay sharp on PHP, React and JavaScript patterns — because the best developers never stop learning.</p>
     <div class="skills-list">
       <span class="skill-pill">HTML / CSS</span>
       <span class="skill-pill">JavaScript</span>
+      <span class="skill-pill">React / Vite</span>
       <span class="skill-pill">PHP</span>
+      <span class="skill-pill">Node.js / Express</span>
       <span class="skill-pill">MySQL</span>
-      <span class="skill-pill">Bootstrap</span>
+      <span class="skill-pill">Socket.io</span>
+      <span class="skill-pill">Bootstrap / Tailwind</span>
       <span class="skill-pill">Figma</span>
       <span class="skill-pill">Java</span>
       <span class="skill-pill">C++</span>
